@@ -1,5 +1,5 @@
 data "aws_iam_policy_document" "inspector_event_role_policy" {
-  count = local.scheduled_count
+  count = var.enable_scheduled_event
   statement {
     sid = "StartAssessment"
     actions = [
@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "inspector_event_role_policy" {
 }
 
 resource "aws_iam_role" "inspector_event_role" {
-  count = local.scheduled_count
+  count = var.enable_scheduled_event
   name  = "${var.name_prefix}-${var.region}-inspector-event-role"
 
   assume_role_policy = <<EOF
