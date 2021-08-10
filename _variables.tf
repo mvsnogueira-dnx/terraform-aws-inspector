@@ -4,9 +4,15 @@ variable "region" {
 
 variable "random_id_prefix" {
   description = "random_id_prefix"
+  default     = ""
 }
 
-variable "account_id" {
+
+variable "name_prefix" {
+  description = "name prefix"
+  default     = ""
+}
+variable "aws_account_id" {
   type        = string
   description = "AWS Account ID"
 }
