@@ -8,6 +8,6 @@ resource "aws_cloudwatch_event_rule" "inspector_event_schedule" {
 resource "aws_cloudwatch_event_target" "inspector_event_target" {
   count    = local.scheduled_count
   rule     = aws_cloudwatch_event_rule.inspector_event_schedule[0].name
-  arn      = aws_inspector_assessment_template.assessment.arn
+  arn      = aws_inspector_assessment_template.template.arn
   role_arn = aws_iam_role.inspector_event_role[0].arn
 }
