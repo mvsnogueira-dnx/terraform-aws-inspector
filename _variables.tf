@@ -1,13 +1,6 @@
 variable "region" {
   description = "AWS Region."
 }
-
-variable "random_id_prefix" {
-  description = "random_id_prefix"
-  default     = ""
-}
-
-
 variable "name_prefix" {
   description = "name prefix"
   default     = ""
@@ -29,27 +22,17 @@ variable "enable_scheduled_event" {
   default     = true
 }
 
-variable "ruleset_cis" {
-  type        = bool
-  description = "Enable CIS Operating System Security Configuration Benchmarks Ruleset"
-  default     = true
-}
-variable "ruleset_cve" {
-  type        = bool
-  description = "Enable Common Vulnerabilities and Exposures Ruleset"
-  default     = true
-}
-variable "ruleset_network_reachability" {
-  type        = bool
-  description = "Enable AWS Network Reachability Ruleset"
-  default     = true
-}
-variable "ruleset_security_best_practices" {
-  type        = bool
-  description = "Enable AWS Security Best Practices Ruleset"
-  default     = true
-}
 variable "schedule_expression" {
   type        = string
   description = "AWS Schedule Expression: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html"
+}
+
+variable "assessment_ruleset" {
+  type        = list(string)
+  description = <<-DOC
+    A list of AWS Inspector rules that should run on a periodic basis.
+    Possible rules: Common Vulnerabilities and Exposures / CIS Operating System Security Configuration Benchmarks / Network Reachability / Security Best Practices
+    [Inspector rule arns by region](https://docs.aws.amazon.com/inspector/latest/userguide/inspector_rules-arns.html).
+    example: enabled_rules   = ["arn:aws:inspector:us-east-2:646659390643:rulespackage/0-m8r61nnh"]
+  DOC
 }
