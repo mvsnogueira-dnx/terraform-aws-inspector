@@ -21,10 +21,11 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| account\_id | AWS Account ID | `string` | n/a | yes |
 | assessment\_duration | The duration of the Inspector assessment run | `string` | `"3600"` | no |
+| aws\_account\_id | AWS Account ID | `string` | n/a | yes |
 | enable\_scheduled\_event | Enable Cloudwatch Events to schedule an assessment | `bool` | `true` | no |
-| random\_id\_prefix | random\_id\_prefix | `any` | n/a | yes |
+| name\_prefix | name prefix | `string` | `""` | no |
+| random\_id\_prefix | random\_id\_prefix | `string` | `""` | no |
 | region | AWS Region. | `any` | n/a | yes |
 | ruleset\_cis | Enable CIS Operating System Security Configuration Benchmarks Ruleset | `bool` | `true` | no |
 | ruleset\_cve | Enable Common Vulnerabilities and Exposures Ruleset | `bool` | `true` | no |
