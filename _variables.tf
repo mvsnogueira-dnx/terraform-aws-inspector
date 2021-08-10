@@ -33,6 +33,6 @@ variable "assessment_ruleset" {
     A list of AWS Inspector rules that should run on a periodic basis.
     Possible rules: Common Vulnerabilities and Exposures(CVE) / CIS Operating System Security Configuration Benchmarks (CIS)/ Network Reachability / Security Best Practices
     Get the Inspector rule arns by region: https://docs.aws.amazon.com/inspector/latest/userguide/inspector_rules-arns.html
-    example: enabled_rules   = ["arn:aws:inspector:us-east-2:646659390643:rulespackage/0-m8r61nnh"]
+    example: assessment_ruleset   = ["arn:aws:inspector:us-east-2:646659390643:rulespackage/0-m8r61nnh"]
   DOC
 }
