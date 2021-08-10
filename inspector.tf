@@ -15,7 +15,7 @@ resource "aws_inspector_assessment_target" "assessment" {
   name = "${var.name_prefix}-assessment-target"
 }
 
-resource "aws_inspector_assessment_template" "assessment" {
+resource "aws_inspector_assessment_template" "template" {
   name               = "${var.name_prefix}-assessment-template"
   target_arn         = aws_inspector_assessment_target.assessment.arn
   duration           = var.assessment_duration

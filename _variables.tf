@@ -2,10 +2,6 @@ variable "region" {
   description = "AWS Region."
 }
 
-variable "schedule_expression" {
-  description = "schedule expression for cloudwatch rule to start Inspector scan"
-}
-
 variable "random_id_prefix" {
   description = "random_id_prefix"
 }
