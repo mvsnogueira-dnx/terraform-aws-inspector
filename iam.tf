@@ -13,7 +13,7 @@ data "aws_iam_policy_document" "inspector_event_role_policy" {
 
 resource "aws_iam_role" "inspector_event_role" {
   count = local.scheduled_count
-  name  = "${var.name_prefix}-inspector-event-role"
+  name  = "${var.name_prefix}-${var.region}-inspector-event-role"
 
   assume_role_policy = <<EOF
 {
@@ -34,7 +34,7 @@ EOF
 
 resource "aws_iam_role_policy" "inspector_event" {
   count  = local.scheduled_count
-  name   = "${var.name_prefix}-inspector-event-policy"
+  name   = "${var.name_prefix}-${var.region}-inspector-event-policy"
   role   = aws_iam_role.inspector_event_role[0].id
   policy = data.aws_iam_policy_document.inspector_event_role_policy[0].json
 }
