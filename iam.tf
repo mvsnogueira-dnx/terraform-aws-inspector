@@ -33,7 +33,7 @@ EOF
 }
 
 resource "aws_iam_role_policy" "inspector_event" {
-  count  = local.scheduled_count ? 1 : 0
+  count = var.enable_scheduled_event ? 1 : 0
   name   = "${var.name_prefix}-${var.region}-inspector-event-policy"
   role   = aws_iam_role.inspector_event_role[0].id
   policy = data.aws_iam_policy_document.inspector_event_role_policy[0].json
