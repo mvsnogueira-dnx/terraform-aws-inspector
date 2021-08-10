@@ -11,17 +11,6 @@ data "aws_iam_policy_document" "inspector_event_role_policy" {
   }
 }
 
-resource "aws_inspector_assessment_target" "assessment" {
-  name = "${var.name_prefix}-assessment-target"
-}
-
-resource "aws_inspector_assessment_template" "assessment" {
-  name               = "${var.name_prefix}-assessment-template"
-  target_arn         = aws_inspector_assessment_target.assessment.arn
-  duration           = var.assessment_duration
-  rules_package_arns = local.assessment_ruleset
-}
-
 resource "aws_iam_role" "inspector_event_role" {
   count = local.scheduled_count
   name  = "${var.name_prefix}-inspector-event-role"
