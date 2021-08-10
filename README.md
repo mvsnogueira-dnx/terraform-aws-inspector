@@ -1,10 +1,28 @@
-# terraform-aws-template
+# terraform-aws-inspector
 
 [![Lint Status](https://github.com/DNXLabs/terraform-aws-template/workflows/Lint/badge.svg)](https://github.com/DNXLabs/terraform-aws-template/actions)
 [![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-template)](https://github.com/DNXLabs/terraform-aws-template/blob/master/LICENSE)
 
 <!--- BEGIN_TF_DOCS --->
 
+A terraform module to deploy Amazon Inspector.
+
+The following resources will be created:
+
+- IAM Roles and Policies
+- Cloudwatch events and rules
+- AWS Inspector Assessment target
+- AWS Inspector Assessment templates
+
+# Optional
+
+- enable_scheduled_event - Default true; A way to disable Inspector from running on a schedule
+- schedule_expression - Default rate(7 days); How often to run an Inspector assessment. See AWS Schedule Expression documentation for more info on formatting.s
+- assessment_duration - Default 3600; How long the assessment runs in seconds.
+- ruleset_cve - Default true; Includes the Common Vulnerabilties and Exposures ruleset in the Inspector assessment.
+- ruleset_cis - Default true; Includes the CIS Benchmarks ruleset in the Inspector assessment.
+- ruleset_security_best_practices - Default true; Includes the AWS Security Best Practices ruleset in the Inspector assessment.
+- ruleset_network_reachability - Default true; Includes the Network Reachability ruleset in the Inspector assessment.
 ## Requirements
 
 | Name | Version |
